@@ -4,7 +4,7 @@ app.use(express.json())
 let db = require("./db");
 let cors = require("cors");
 
-const arman_secret = "hello this is SDE arman nakhwa";
+const proj_secret = "hello this is SDE arman nakhwa";
 
 let PORT=process.env.PORT || 10;
 
@@ -14,15 +14,15 @@ app.use(cors())
 //middleware for generate token
 const jwt = require('jsonwebtoken');
 function generateAccessToken(email) {
-    return jwt.sign(email, arman_secret);
+    return jwt.sign(email, proj_secret);
 }
 
-//middleware for checking if the user is valid or not #arman nakhwa
+//middleware for checking if the user is valid or not 
 const authenticate = (req, res, next) => {
     try {
         const token = req.header("auth-token");
        // console.log(token)
-        let data = jwt.verify(token, arman_secret);
+        let data = jwt.verify(token, proj_secret);
         
         req.email = data.email;
         next();
