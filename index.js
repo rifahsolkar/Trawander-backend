@@ -4,7 +4,7 @@ app.use(express.json())
 let db = require("./db");
 let cors = require("cors");
 
-const proj_secret = "hello this is SDE arman nakhwa";
+const proj_secret = "hello this is SDE rifah team";
 
 let PORT=process.env.PORT || 10;
 
